@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Generate cards
+{% endblock %}
+
+{% block content %}
+    <div class="mb-5">
+        <h1>Генератор бонусных карт</h1>
+    </div>
+    <form action="{% url 'generate_card' %}" method="post">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>{{ form.series.label }}</label>
+                {{ form.series }}
+            </div>
+            <div class="form-group col-md-6">
+                <label>{{ form.count.label }}</label>
+                {{ form.count }}
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>{{ form.date_term.label }}</label>
+            {{ form.date_term }}
+        </div>
+
+        <button class="btn btn-primary" type="submit">Сгенерировать!</button>
+
+    </form>
+{% endblock %}

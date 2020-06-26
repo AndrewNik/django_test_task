@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Cards List
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+	{% csrf_token %}
+    <a href="{% url 'generate_card' %}"><button type="button" class="btn btn-primary btn-lg float-right">Генератор карт</button></a>
+	<h1 class="mb-3">Бонусные карты: </h1>
+
+    {% include 'loyalty_card/includes/search.html' %}
+
+	<div class="row row-cols-3">
+		{% for card in page_obj %}
+			{% include 'loyalty_card/includes/card_template.html' %}
+		{% endfor %}
+	</div>
+
+{% endblock %}
+
+{% block script %}
+	<script src="{% static "loyalty_card/script.js" %}"></script>
+{% endblock %}

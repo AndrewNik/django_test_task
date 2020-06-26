@@ -1,0 +1,26 @@
+<form action="{% url 'search_cards' %}" method="post" class="mb-3">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label>{{ search.search.label }}</label>
+        </div>
+
+        {% for field in search %}
+            <div class="form-group col-md-3">
+                {% if field.errors %}
+                    <div class="alert alert-danger">
+                        {{ field.errors }}
+                    </div>
+                {% endif %}
+
+                {{ field }}
+            </div>
+        {% endfor %}
+        <div class="form-group col-md-3">
+            <button class="btn btn-primary float-right" type="submit">Найти</button>
+        </div>
+
+
+    </div>
+
+</form>

@@ -1,0 +1,28 @@
+<div class="col mb-4 card-container">
+	<div class="card" style="width: 19rem">
+		<div class="card-body">
+			<h5 class="card-title">Карта: <span>{{ card.series }} {{ card.number }}</span></h5>
+			<p class="card-text rel-date">Дата выпуска: <span>{{ card.release_date|date:'d.m.Y H:i' }}</span></p>
+			<p class="card-text end-date">Дата окончания: <span>{{ card.end_date|date:'d.m.Y H:i' }}</span></p>
+			<div class="status">Статус:
+				<div class="dropdown  d-inline-block">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+					        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+						<span class="selection">{{ card.status }}</span>
+
+					</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						{% for st in card.Status %}
+							<a class="dropdown-item" href="#">{{ st }}</a>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer text-center">
+			<button type="button" class="btn btn-danger card-delete">Удалить</button>
+		</div>
+	</div>
+</div>
+
