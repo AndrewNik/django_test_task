@@ -13,7 +13,7 @@ $(function () {
         let selText = $(dd_elem).text();
 
         $.ajax({
-            url: `card/update/`,
+            url: `${window.location.origin}/loyalty/card/update/`,
             type: 'POST',
             headers: {
                 "X-CSRFToken": csrftoken
@@ -31,7 +31,7 @@ $(function () {
             ser_num = cur_elem.parent().siblings('.card-body').find('.card-title span').text();
 
         $.ajax({
-            url: `card/delete/`,
+            url: `${window.location.origin}/loyalty/card/delete/`,
             type: 'DELETE',
             headers: {
                 "X-CSRFToken": csrftoken
